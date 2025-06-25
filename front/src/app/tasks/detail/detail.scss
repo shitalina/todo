@@ -1,0 +1,89 @@
+@import '../../../styles.scss';
+.task-detail-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  @extend .card;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.loading-message {
+  text-align: center;
+  color: #777;
+  margin-top: 50px;
+  font-size: 1.2em;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+  @extend input[type="text"];
+}
+
+.task-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.task-actions button {
+  @extend .button;
+}
+
+.task-actions button[type="submit"] {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.task-actions button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.task-actions .delete-button {
+  background-color: #f4cccc;
+  color: #c00;
+}
+
+.task-actions .delete-button:hover {
+  background-color: #e0b2b2;
+}
+
+.error-message {
+  color: #c00;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .task-detail-container {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  .task-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .task-actions button {
+    width: 100%;
+  }
+}

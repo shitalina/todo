@@ -1,0 +1,144 @@
+@import '../../../styles.scss'; 
+
+.task-list-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filters input,
+.filters select {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.task-card {
+  @extend .card;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.task-card.in-progress {
+  border-left: 5px solid #96DBB4;
+  background-color: #f0f0f0;
+}
+
+.task-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.task-info input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.task-info input[type="checkbox"]:checked {
+  background-color: #e0e0e0;
+  border-color: #e0e0e0;
+}
+
+.task-info input[type="checkbox"]:checked::before {
+  content: '✔';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #333;
+  font-size: 14px;
+}
+
+.task-info span {
+  font-size: 1.1em;
+  color: #444;
+}
+
+.task-info .project-name {
+  font-size: 0.9em;
+  color: #777;
+  margin-left: 5px;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.task-actions .button {
+  @extend .button;
+}
+
+.task-actions .delete-button {
+  background-color: #f4cccc;
+  color: #c00;
+}
+
+.task-actions .delete-button:hover {
+  background-color: #e0b2b2;
+}
+
+.no-tasks {
+  text-align: center;
+  color: #777;
+  margin-top: 50px;
+  font-size: 1.2em;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .task-list-container {
+    margin: 20px;
+    padding: 10px;
+  }
+
+  .filters {
+    flex-direction: column;
+  }
+
+  .task-grid {
+    grid-template-columns: 1fr;
+  }
+}

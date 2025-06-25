@@ -1,0 +1,55 @@
+@import '../../../styles.scss';
+
+.task-create-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  @extend .card;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input[type="text"],
+.form-group select,
+.form-group textarea {
+  @extend input[type="text"];
+}
+
+button[type="submit"] {
+  @extend .button;
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1em;
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #c00;
+  font-size: 0.9em;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .task-create-container {
+    margin: 20px;
+    padding: 15px;
+  }
+}

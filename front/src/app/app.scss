@@ -1,0 +1,36 @@
+nav {
+  background-color: #333; /* 優しい黒 */
+  padding: 15px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* 横並び */
+  justify-content: center; /* 中央揃え */
+  gap: 30px; /* アイテム間のスペース */
+}
+
+nav li a {
+  color: #f8f8f8; /* 優しい白色 */
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+nav li a:hover {
+  background-color: #555;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column; /* 縦並び */
+    align-items: center; /* 中央揃え */
+    gap: 15px;
+  }
+}

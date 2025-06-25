@@ -1,0 +1,37 @@
+<div class="task-create-container">
+  <h2>新しいタスクを作成</h2>
+  <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="title">タイトル</label>
+      <input type="text" id="title" formControlName="title" required>
+      <div *ngIf="taskForm.get('title')?.invalid && (taskForm.get('title')?.dirty || taskForm.get('title')?.touched)" class="error-message">
+        <div *ngIf="taskForm.get('title')?.errors?.['required']">タイトルは必須です。</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="project_name">プロジェクト名 (任意)</label>
+      <input type="text" id="project_name" formControlName="project_name">
+    </div>
+
+    <div class="form-group">
+      <label for="current_status">ステータス</label>
+      <select id="current_status" formControlName="current_status" required>
+        <option value="unstarted">未着手</option>
+        <option value="in_progress">進行中</option>
+        <option value="completed">完了</option>
+      </select>
+      <div *ngIf="taskForm.get('current_status')?.invalid && (taskForm.get('current_status')?.dirty || taskForm.get('current_status')?.touched)" class="error-message">
+        <div *ngIf="taskForm.get('current_status')?.errors?.['required']">ステータスは必須です。</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="memo">メモ (任意)</label>
+      <textarea id="memo" formControlName="memo"></textarea>
+    </div>
+
+    <button type="submit" [disabled]="!taskForm.valid" class="button">タスクを作成</button>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </form>
+</div>
