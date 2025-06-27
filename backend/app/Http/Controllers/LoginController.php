@@ -48,4 +48,9 @@ class LoginController extends Controller
 
         return response()->json(["success" => "ログアウトしました"], 200);
     }
+
+    public function user(Request $request): JsonResponse
+    {
+        return response()->json($request->user());
+    }
 }

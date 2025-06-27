@@ -1,9 +1,16 @@
-<nav>
+<nav *ngIf="isLoggedIn$ | async">
   <ul>
     <li><a routerLink="/tasks">タスク一覧</a></li>
     <li><a routerLink="/tasks/create">タスク作成</a></li>
+    <li><a routerLink="/login" (click)="logout()">ログアウト</a></li>
+  </ul>
+</nav>
+
+<nav *ngIf="!(isLoggedIn$ | async)">
+  <ul>
     <li><a routerLink="/login">ログイン</a></li>
   </ul>
 </nav>
 
 <router-outlet></router-outlet>
+
